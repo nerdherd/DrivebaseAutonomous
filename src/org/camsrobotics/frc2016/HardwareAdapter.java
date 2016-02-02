@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SerialPort;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.VictorSP;
 
@@ -30,10 +31,10 @@ public class HardwareAdapter {
 	public static final NerdyJoystick kButtonBox		= new NerdyJoystick(2);
 	
 	// Motors
-	public static final VictorSP kDriveFrontLeft		= new VictorSP(2);
-	public static final VictorSP kDriveFrontRight		= new VictorSP(3);
-	public static final VictorSP kDriveBackLeft			= new VictorSP(4);
-	public static final VictorSP kDriveBackRight		= new VictorSP(5);
+	public static final Talon kDriveFrontLeft		= new Talon(2);
+	public static final Talon kDriveFrontRight		= new Talon(4);
+	public static final Talon kDriveBackLeft		= new Talon(0);
+	public static final Talon kDriveBackRight		= new Talon(3);
 	
 	// Pneumatics
 	public static final Compressor kCompressor			= new Compressor();

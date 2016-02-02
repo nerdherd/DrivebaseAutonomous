@@ -34,6 +34,7 @@ public class AutoExecutor {
 			break;
 		case LOW_BAR:
 			m_auto = new LowBarAuto();
+			break;
 		default:
 			m_auto = new DoNothingAuto();
 			break;
@@ -44,10 +45,13 @@ public class AutoExecutor {
 	 * Let's go!
 	 */
 	public void start()	{
+		System.out.println("A");
 		if(m_thread == null)	{
+			System.out.println("B");
 			m_thread = new Thread(new Runnable() {
 				@Override
 				public void run() {
+					System.out.println("C");
 					m_auto.run();
 				}
 			});

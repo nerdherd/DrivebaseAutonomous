@@ -153,6 +153,7 @@ public class Drive implements Loopable {
 		}
 		
 		if(m_signal != null)	{
+			System.out.println(m_signal.leftSpeed+"\t"+m_signal.rightSpeed);
 			m_leftGearbox.setSpeed(m_signal.leftSpeed);
 			m_rightGearbox.setSpeed(m_signal.rightSpeed);
 		}	else	{
