@@ -1,22 +1,17 @@
 package org.camsrobotics.frc2016;
 
 import org.camsrobotics.frc2016.subsystems.Drive;
-import org.camsrobotics.frc2016.subsystems.Intake;
-import org.camsrobotics.frc2016.subsystems.Lifter;
-import org.camsrobotics.frc2016.subsystems.Shooter;
 import org.camsrobotics.lib.Gearbox;
 import org.camsrobotics.lib.NerdyJoystick;
 
 import com.kauailabs.navx_mxp.AHRS;
 
-import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Ultrasonic;
-import edu.wpi.first.wpilibj.VictorSP;
 
 /**
  * Hardware Components

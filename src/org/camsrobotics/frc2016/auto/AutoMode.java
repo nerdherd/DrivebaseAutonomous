@@ -3,9 +3,6 @@ package org.camsrobotics.frc2016.auto;
 import org.camsrobotics.frc2016.HardwareAdapter;
 import org.camsrobotics.frc2016.auto.actions.Action;
 import org.camsrobotics.frc2016.subsystems.Drive;
-import org.camsrobotics.frc2016.subsystems.Intake;
-import org.camsrobotics.frc2016.subsystems.Lifter;
-import org.camsrobotics.frc2016.subsystems.Shooter;
 
 /**
  * Base class for Autonomous modes
