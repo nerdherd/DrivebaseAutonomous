@@ -26,10 +26,12 @@ public class HardwareAdapter {
 	public static final NerdyJoystick kButtonBox		= new NerdyJoystick(2);
 	
 	// Motors
-	public static final Talon kDriveFrontLeft		= new Talon(2);
-	public static final Talon kDriveFrontRight		= new Talon(4);
-	public static final Talon kDriveBackLeft		= new Talon(0);
-	public static final Talon kDriveBackRight		= new Talon(3);
+	public static final Talon kDriveFrontLeft		= new Talon(0);
+	public static final Talon kDriveFrontRight		= new Talon(3);
+	public static final Talon kDriveMiddleLeft		= new Talon(1);
+	public static final Talon kDriveMiddleRight		= new Talon(4);
+	public static final Talon kDriveBackLeft		= new Talon(2);
+	public static final Talon kDriveBackRight		= new Talon(5);
 	
 	// Pneumatics
 	public static final Compressor kCompressor			= new Compressor();
