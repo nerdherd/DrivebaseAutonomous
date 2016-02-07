@@ -45,8 +45,8 @@ public class HardwareAdapter {
 	public static final Ultrasonic kUltrasonic			= new Ultrasonic(4,5);
 	
 	// Gearboxes
-	public static final Gearbox kDriveLeftGearbox		= new Gearbox(kDriveFrontLeft, kDriveBackLeft, kDriveLeftEncoder, kLeftShifter);
-	public static final Gearbox kDriveRightGearbox		= new Gearbox(kDriveFrontRight, kDriveBackRight, kDriveRightEncoder, kRightShifter);
+	public static final Gearbox kDriveLeftGearbox		= new Gearbox(kDriveFrontLeft, kDriveMiddleLeft, kDriveBackLeft, kDriveLeftEncoder, kLeftShifter);
+	public static final Gearbox kDriveRightGearbox		= new Gearbox(kDriveFrontRight, kDriveMiddleRight, kDriveBackRight, kDriveRightEncoder, kRightShifter);
 	
 	// Subsystems
 	public static final Drive kDrive = new Drive(kDriveLeftGearbox, kDriveRightGearbox, kNavX);
