@@ -18,7 +18,7 @@ public class Constants {
 	/*
 	 * Drive Constants
 	 */
-	public final static double kDriveRotationP		= 0.00444;
+	public final static double kDriveRotationP		= 0;
 	public final static double kDriveRotationI		= 0;
 	public final static double kDriveRotationD		= 0;
 	public final static double kDriveVisionP		= 0.00245;
@@ -31,8 +31,8 @@ public class Constants {
 	/*
 	 * Shooter Constants
 	 */
-	public final static double kFlywheelF		= 0;
-	public final static double kFlywheelP		= 0;
+	public final static double kFlywheelF		= 0.075;
+	public final static double kFlywheelP		= 0.1;
 	public final static double kFlywheelI		= 0;
 	public final static double kFlywheelD		= 0;
 	public final static double kLiftF			= 0;
@@ -41,25 +41,28 @@ public class Constants {
 	public final static double kLiftD			= 0;
 	public final static double kShootTime		= 0.5;
 	
-	public final static int kLongRangeRPM		= 3600;
-	public final static int kMediumRangeRPM		= 0;
-	public final static int kShortRangeRPM		= 3600;
+	public final static int kManualRPM			= 3000;
+	public final static int kShortRangeRPM		= 2000;
+	public final static int kMediumRangeRPM		= 3000;
+	public final static int kLongRangeRPM		= 4000;
+
+	public final static int kShortRangeActivate	= 2700;
+	public final static int kMediumRangeActivate= 4000;
+	public final static int kLongRangeActivate	= 5400;
 	
-	public final static int kLongRangeAngle		= 0;
-	public final static int kMediumRangeAngle	= 0;
 	public final static int kShortRangeAngle	= 0;
+	public final static int kMediumRangeAngle	= 0;
+	public final static int kLongRangeAngle		= 0;
 	
 	/*
 	 * Intake Constants
 	 */
-	public final static double kIntakeSpeed		= 0.75;
+	public final static double kIntakeSpeed		= 1;
 	public final static double kIntakeF			= 0;
-	public final static double kIntakeP			= 0;
+	public final static double kIntakeP			= 3;
 	public final static double kIntakeI			= 0;
-	public final static double kIntakeD			= 0;
-	public final static int kIntakeTicksPerRev	= 0;
+	public final static double kIntakeD			= 16;
 	
-	public final static int kIntakeFloorLevel	= 0;
-	public final static int kIntakeBallPickup	= 0;
-	public final static int kIntakeTuckedIn		= 0;
+	public final static double kIntakeBallPickup	= -0.115;
+	public final static double kIntakeTuckedIn		= -0.325;
 }

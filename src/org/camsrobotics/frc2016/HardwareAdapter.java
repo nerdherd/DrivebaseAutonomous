@@ -6,12 +6,10 @@ import org.camsrobotics.lib.NerdyJoystick;
 
 import com.kauailabs.navx.frc.AHRS;
 
-import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SerialPort;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Ultrasonic;
+import edu.wpi.first.wpilibj.VictorSP;
 
 /**
  * Hardware Components
@@ -26,17 +24,13 @@ public class HardwareAdapter {
 	public static final NerdyJoystick kButtonBox		= new NerdyJoystick(2);
 	
 	// Motors
-	public static final Talon kDriveFrontLeft		= new Talon(0);
-	public static final Talon kDriveFrontRight		= new Talon(3);
-	public static final Talon kDriveMiddleLeft		= new Talon(1);
-	public static final Talon kDriveMiddleRight		= new Talon(4);
-	public static final Talon kDriveBackLeft		= new Talon(2);
-	public static final Talon kDriveBackRight		= new Talon(5);
+	public static final VictorSP kDriveLeft1			= new VictorSP(0);
+	public static final VictorSP kDriveLeft2			= new VictorSP(1);
+	public static final VictorSP kDriveLeft3			= new VictorSP(2);
+	public static final VictorSP kDriveRight1			= new VictorSP(3);
+	public static final VictorSP kDriveRight2			= new VictorSP(4);
+	public static final VictorSP kDriveRight3			= new VictorSP(5);
 	
-	// Pneumatics
-	public static final Compressor kCompressor			= new Compressor();
-	public static final DoubleSolenoid kLeftShifter		= new DoubleSolenoid(1,2);
-	public static final DoubleSolenoid kRightShifter	= new DoubleSolenoid(3,4);
 	
 	// Sensors
 	public static final AHRS kNavX						= new AHRS(SerialPort.Port.kMXP);
@@ -45,9 +39,9 @@ public class HardwareAdapter {
 	public static final Ultrasonic kUltrasonic			= new Ultrasonic(4,5);
 	
 	// Gearboxes
-	public static final Gearbox kDriveLeftGearbox		= new Gearbox(kDriveFrontLeft, kDriveMiddleLeft, kDriveBackLeft, kDriveLeftEncoder, kLeftShifter);
-	public static final Gearbox kDriveRightGearbox		= new Gearbox(kDriveFrontRight, kDriveMiddleRight, kDriveBackRight, kDriveRightEncoder, kRightShifter);
+	public static final Gearbox kDriveLeftGearbox		= new Gearbox(kDriveLeft1, kDriveLeft2, kDriveRight3, kDriveLeftEncoder);
+	public static final Gearbox kDriveRightGearbox		= new Gearbox(kDriveRight1, kDriveRight2, kDriveRight3, kDriveRightEncoder);
 	
 	// Subsystems
-	public static final Drive kDrive = new Drive(kDriveLeftGearbox, kDriveRightGearbox, kNavX);
+	public static final Drive kDrive = new Drive("Drivebase", kDriveLeftGearbox, kDriveRightGearbox, kNavX);
 }

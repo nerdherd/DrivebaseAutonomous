@@ -3,9 +3,11 @@ package org.camsrobotics.frc2016.subsystems;
 import org.camsrobotics.frc2016.Constants;
 import org.camsrobotics.frc2016.Vision;
 import org.camsrobotics.lib.Gearbox;
-import org.camsrobotics.lib.Loopable;
+import org.camsrobotics.lib.Subsystem;
 
 import com.kauailabs.navx.frc.AHRS;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Drivebase Interface
@@ -13,7 +15,7 @@ import com.kauailabs.navx.frc.AHRS;
  * @author Wesley
  *
  */
-public class Drive implements Loopable {
+public class Drive extends Subsystem {
 	
 	/**
 	 * Send a DriveSignal to the drivebase to control it
@@ -69,7 +71,8 @@ public class Drive implements Loopable {
 	
 	private Vision m_table = Vision.getInstance();
 	
-	public Drive(Gearbox leftGearbox, Gearbox rightGearbox, AHRS nav)	{
+	public Drive(String name, Gearbox leftGearbox, Gearbox rightGearbox, AHRS nav)	{
+		super(name);
 		m_leftGearbox = leftGearbox;
 		m_rightGearbox = rightGearbox;
 		m_rightGearbox.setReversed();
@@ -133,14 +136,16 @@ public class Drive implements Loopable {
 		}
 	}
 	
-	public void resetEncoders()	{
-		m_leftGearbox.resetEncoder();
-		m_rightGearbox.resetEncoder();
-	}
-	
 	public void stop()	{
 		m_leftGearbox.setSpeed(0);
 		m_rightGearbox.setSpeed(0);
+		m_signal = null;
+	}
+	
+	@Override
+	public void zero()	{
+		m_leftGearbox.resetEncoder();
+		m_rightGearbox.resetEncoder();
 	}
 	
 	/**
@@ -153,12 +158,24 @@ public class Drive implements Loopable {
 		}
 		
 		if(m_signal != null)	{
-			System.out.println(m_signal.leftSpeed+"\t"+m_signal.rightSpeed);
 			m_leftGearbox.setSpeed(m_signal.leftSpeed);
 			m_rightGearbox.setSpeed(m_signal.rightSpeed);
 		}	else	{
 			m_leftGearbox.setSpeed(0);
 			m_rightGearbox.setSpeed(0);
 		}
+		
+		
+	}
+
+	@Override
+	public void reportState() {
+		SmartDashboard.putNumber("LeftSpeed", m_signal.leftSpeed);
+		SmartDashboard.putNumber("RightSpeed", m_signal.rightSpeed);
+		
+		SmartDashboard.putNumber("Yaw", getYaw());
+		SmartDashboard.putNumber("LeftEncoder", getLeftEncoderDistance());
+		SmartDashboard.putNumber("RightEncoder", getRightEncoderDistance());
+		SmartDashboard.putNumber("VisionCenterX", getVision());
 	}
 }
