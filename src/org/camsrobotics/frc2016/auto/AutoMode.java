@@ -16,7 +16,12 @@ public abstract class AutoMode {
 	private double m_period = 1/50.0;
 	private boolean m_enabled = false;
 
-	public abstract void run();
+	public abstract void routine();
+	
+	public void run()	{
+		m_enabled = true;
+		routine();
+	}
 	
 	public void stop()	{
 		m_enabled = false;
